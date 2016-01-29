@@ -26,6 +26,7 @@ var config = {
     src_dir: "src/",
     dst_dir: "dist/",
     js: [
+        "src/js/Rectangle.js",
         "src/js/Vector2D.js",
         "src/js/Line.js",
         "src/js/Triangle.js",
