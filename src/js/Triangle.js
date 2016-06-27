@@ -6,7 +6,7 @@ function Triangle(p0, p1, p2, name) {
   this.b = p1;
   this.a = p0;
 
-  this.name = (name != undefined) ? name : "";
+  this.name =  name || "";
 }
 
 Triangle.prototype.ptsIntersectStrict = function(p) {

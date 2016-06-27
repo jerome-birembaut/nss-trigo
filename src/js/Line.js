@@ -10,7 +10,7 @@ function Line(p0, p1, name) {
 
   this.a = (this.p1.y - this.p0.y) / (this.p1.x - this.p0.x);
   this.b = this.p1.y - (this.a * this.p1.x);
-  this.name = (name != undefined) ? name : "";
+  this.name =  name || "";
 }
 
 Line.prototype.distance = function (pts) {

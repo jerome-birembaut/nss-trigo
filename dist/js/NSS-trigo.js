@@ -1,12 +1,13 @@
 /**
  * Created by Jerome Birembaut @Seraf_NSS on 29/01/16.
  */
-var rect = Rectangle = function (x, y, w, h) {
+var rect = Rectangle = function (x, y, w, h, name) {
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h
 
+  this.name =  name || "";
 };
 Rectangle.prototype.pointIntersect = function (p) {
     return p.x > this.x && p.x < this.x + this.w && p.y > this.y && p.y < this.y + this.h;
@@ -25,62 +26,71 @@ function Vector2D(x, y, name) {
   this.name =  name || "";
 
 }
+//PUBLIC FUNCTION
 Vector2D.prototype.length = function () {
   return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 Vector2D.prototype.dot = function (v) {
   return this.x * v.x + this.y * v.y;
 };
-Vector2D.dot = function (v0, v1) {
-  return v0.x * v1.x + v0.y * v1.y;
-}
 Vector2D.prototype.cross = function (v) {
   return this.x * v.y - this.y * v.x;
-}
-Vector2D.cross = function (v0, v1) {
-  return v0.x * v1.y - v0.y * v1.x;
-}
-
-Vector2D.unit = function (v) {
-  return Vector2D.divide(v).length();
 };
 Vector2D.prototype.unit = function () {
   this.divide(this.length());
   return this;
-};
-Vector2D.add = function (v1,v2) {
-  return new Vector2D(v1.x + v2.x, v1.y + v2.y);
 };
 Vector2D.prototype.add = function (v) {
   this.x += v.x;
   this.y += v.y;
   return this;
 };
-
-Vector2D.subtract = function (v1,v2) {
-  return new Vector2D(v1.x - v2.x, v1.y - v2.y);
-};
 Vector2D.prototype.subtract = function (v) {
   this.x -= v.x;
   this.y -= v.y;
   return this;
-};
-Vector2D.multiply = function (v,s) {
-  return new Vector2D(v.x * s, v.y * s);
 };
 Vector2D.prototype.multiply = function (s) {
   this.x *= s;
   this.y *= s;
   return this;
 };
-Vector2D.divide = function (v,s) {
-  return new Vector2D(v.x / s, v.y / s);
-};
 Vector2D.prototype.divide = function (s) {
   this.x /= s;
   this.y /= s;
-
   return this;
+};
+Vector2D.prototype.toString = function () {
+  return this.name + " " + this.x + "," + this.y;
+};
+//STATIC PUBLIC FUNCTION
+/***
+ * @description  return dot of 2 vector
+ *
+ * @param v0 first vector
+ * @param v1 second vector
+ * @returns {number}  dot
+ */
+Vector2D.dot = function (v0, v1) {
+  return v0.x * v1.x + v0.y * v1.y;
+};
+Vector2D.cross = function (v0, v1) {
+  return v0.x * v1.y - v0.y * v1.x;
+};
+Vector2D.unit = function (v) {
+  return Vector2D.divide(v).length();
+};
+Vector2D.add = function (v1,v2) {
+  return new Vector2D(v1.x + v2.x, v1.y + v2.y);
+};
+Vector2D.subtract = function (v1,v2) {
+  return new Vector2D(v1.x - v2.x, v1.y - v2.y);
+};
+Vector2D.multiply = function (v,s) {
+  return new Vector2D(v.x * s, v.y * s);
+};
+Vector2D.divide = function (v,s) {
+  return new Vector2D(v.x / s, v.y / s);
 };
 Vector2D.perp = function () {
   return new Vector2D(-this.y, this.x);
@@ -90,11 +100,7 @@ Vector2D.perpendicular = function (v1,v2) {
 };
 Vector2D.project = function (v1,v2) {
   var percent = v1.dot(v2) / v2.dot(v2);
-
   return Vector2D.multiply(v2,percent);
-};
-Vector2D.prototype.toString = function () {
-  return this.name + " " + this.x + "," + this.y;
 };
 Vector2D.fromPoints = function (p1, p2) {
   return new Vector2D(
@@ -114,7 +120,7 @@ function Line(p0, p1, name) {
 
   this.a = (this.p1.y - this.p0.y) / (this.p1.x - this.p0.x);
   this.b = this.p1.y - (this.a * this.p1.x);
-  this.name = (name != undefined) ? name : "";
+  this.name =  name || "";
 }
 
 Line.prototype.distance = function (pts) {
@@ -166,7 +172,7 @@ function Triangle(p0, p1, p2, name) {
   this.b = p1;
   this.a = p0;
 
-  this.name = (name != undefined) ? name : "";
+  this.name =  name || "";
 }
 
 Triangle.prototype.ptsIntersectStrict = function(p) {
