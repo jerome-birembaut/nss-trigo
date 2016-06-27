@@ -19,7 +19,7 @@ Rectangle.pointIntersect = function (p, r) {
  * Created by Jerome Birembaut @Seraf_NSS on 29/01/16.
  */
 function Vector2D(x, y, name) {
-  if (!(this instanceof Vector2D)) return new Vector2D(x, y);
+  if (!(this instanceof Vector2D)) return new Vector2D(x, y, name);
 
   this.x = x || 0;
   this.y = y || 0;
@@ -36,6 +36,7 @@ Vector2D.prototype.dot = function (v) {
 Vector2D.prototype.cross = function (v) {
   return this.x * v.y - this.y * v.x;
 };
+//PUBLIC CHAINABLE FUNCTION
 Vector2D.prototype.unit = function () {
   this.divide(this.length());
   return this;
