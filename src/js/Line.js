@@ -5,11 +5,13 @@
  */
 
 function Line(p0, p1, name) {
+
   this.p1 = p1;
   this.p0 = p0;
 
   this.a = (this.p1.y - this.p0.y) / (this.p1.x - this.p0.x);
   this.b = this.p1.y - (this.a * this.p1.x);
+
   this.name =  name || "";
 }
 
