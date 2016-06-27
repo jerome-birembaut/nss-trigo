@@ -18,16 +18,11 @@ Rectangle.pointIntersect = function (p, r) {
  * Created by Jerome Birembaut @Seraf_NSS on 29/01/16.
  */
 function Vector2D(x, y, name) {
+  if (!(this instanceof Vector2D)) return new Vector2D(x, y);
 
-    if (arguments.length > 0) {
-        this.x = x;
-        this.y = y;
-    } else {
-        this.x = 0;
-        this.y = 0;
-    }
-
-    this.name = (name != undefined) ? name : "";
+  this.x = x || 0;
+  this.y = y || 0;
+  this.name =  name || "";
 
 }
 Vector2D.prototype.length = function () {
