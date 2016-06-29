@@ -81,10 +81,10 @@ tools.cssBuild = function () {
     var vendorsFiles = gulp.src(config.css);
 
     var css = es.merge(appFiles, vendorsFiles)
-        .pipe(concat('NSS-trigo.css'))
+        .pipe(concat('nss-trigo.css'))
         .pipe(gulp.dest(config.dst_dir+'css/'))
         .pipe(minifycss())
-        .pipe(concat('NSS-trigo.min.css'))
+        .pipe(concat('nss-trigo.min.css'))
         .pipe(gulp.dest(config.dst_dir+'css/'));
 
     return css;
