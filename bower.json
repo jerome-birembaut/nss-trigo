@@ -1,6 +1,6 @@
 {
   "name": "nss-trigo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "dependencies": {
   },
   "main": "dist/nss-trigo.js",
