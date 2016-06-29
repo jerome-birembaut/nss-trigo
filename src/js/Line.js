@@ -5,7 +5,6 @@
  */
 
 function Line(p0, p1, name) {
-
   this.p1 = p1;
   this.p0 = p0;
 

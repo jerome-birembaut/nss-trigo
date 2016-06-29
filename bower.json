@@ -1,6 +1,25 @@
 {
   "name": "nss-trigo",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "dependencies": {
-  }
+  },
+  "main": "dist/nss-trigo.js",
+  "keywords": [
+    "math",
+    "trigo",
+    "nss",
+    "2D"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "/examples",
+    "/src",
+    "/bower_components",
+    "/.gitignore",
+    "/gulpfile.js",
+    "/node_modules",
+    "/gulpfile.js",
+    "/bower.json",
+    "/package.json"
+  ]
 }

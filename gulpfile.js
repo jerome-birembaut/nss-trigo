@@ -55,11 +55,11 @@ tools.copy = function (src, dest) {
 tools.jsBuild = function () {
     var javascriptStream = gulp.src(config.js)
         .pipe(plumber(plumberErrorHandler))
-        .pipe(concat('NSS-trigo' + '.js'))
-        .pipe(gulp.dest(config.dst_dir + "js/"))
+        .pipe(concat('nss-trigo' + '.js'))
+        .pipe(gulp.dest(config.dst_dir ))
         .pipe(uglify({mangle: false}))
-        .pipe(concat('NSS-trigo' + '.min' + '.js'))
-        .pipe(gulp.dest(config.dst_dir + "js/"));
+        .pipe(concat('nss-trigo' + '.min' + '.js'))
+        .pipe(gulp.dest(config.dst_dir ));
     return javascriptStream;
 };
 

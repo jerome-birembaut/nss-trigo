@@ -116,7 +116,6 @@ Vector2D.fromPoints = function (p1, p2) {
  */
 
 function Line(p0, p1, name) {
-
   this.p1 = p1;
   this.p0 = p0;
 
